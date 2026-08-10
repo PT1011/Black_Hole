@@ -45,7 +45,8 @@ for step in range(10000):  # simulate for 10000 time steps
     if Distance_From_Black_Hole < 2:
         break
 
-plt.plot(Object_X_Path, Object_Y_Path, color='blue') # Plotting the path of the object
-plt.plot(0, 0, marker='o', markersize=10, color='black')  # Black hole at the origin
-plt.axis('equal')
+fig = plt.figure()
+ax = fig.add_subplot(projection='3d')
+ax.plot(Object_X_Path, Object_Y_Path, Object_Z_Path, color='blue')
+ax.plot([0], [0], [0], marker='o', markersize=10, color='black')
 plt.show()
