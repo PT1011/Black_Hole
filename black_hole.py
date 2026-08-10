@@ -8,7 +8,7 @@ dt = 0.01  # time step in seconds (derivative of time)
 Object_Position_X = 0  # initial position in meters
 Object_Position_Y = 100  # initial position in meters
 
-Object_Velocity_X = 3  # initial velocity in m/s
+Object_Velocity_X = 2  # initial velocity in m/s
 Object_Velocity_Y = 0  # initial velocity in m/s
 
 Object_X_Path = []
@@ -32,6 +32,9 @@ for step in range(10000):  # simulate for 10000 time steps
 
     Object_X_Path.append(Object_Position_X)
     Object_Y_Path.append(Object_Position_Y)
+
+    if Distance_From_Black_Hole < 2:
+        break
 
 plt.plot(Object_X_Path, Object_Y_Path, color='blue') # Plotting the path of the object
 plt.plot(0, 0, marker='o', markersize=10, color='black')  # Black hole at the origin
