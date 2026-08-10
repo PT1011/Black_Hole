@@ -8,7 +8,7 @@ dt = 0.01  # time step in seconds (derivative of time)
 Object_Position_X = 0  # initial position in meters
 Object_Position_Y = 100  # initial position in meters
 
-Object_Velocity_X = 10  # initial velocity in m/s
+Object_Velocity_X = 3  # initial velocity in m/s
 Object_Velocity_Y = 0  # initial velocity in m/s
 
 Object_X_Path = []
@@ -16,7 +16,7 @@ Object_Y_Path = []
 
 Distance_From_Black_Hole = math.sqrt(Object_Position_Y**2 + Object_Position_X**2)
 
-while Distance_From_Black_Hole > 0.9:
+for step in range(10000):  # simulate for 10000 time steps
     Distance_From_Black_Hole = math.sqrt(Object_Position_Y**2 + Object_Position_X**2)
 
     Gravitational_Acceleration = (Gravity * Black_Hole_Mass) / Distance_From_Black_Hole**2
