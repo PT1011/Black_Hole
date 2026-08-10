@@ -12,9 +12,9 @@ Object_Position_Y = 100
 Object_Position_Z = 0  
 
 # initial velocity in m/s
-Object_Velocity_X = 2
+Object_Velocity_X = 3
 Object_Velocity_Y = 0  
-Object_Velocity_Z = 0  
+Object_Velocity_Z = 2  
 
 # Lists to store the path of the object
 Object_X_Path = []
