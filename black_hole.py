@@ -32,3 +32,5 @@ while Distance_From_Black_Hole > 0.9:
 
     Object_X_Path.append(Object_Position_X)
     Object_Y_Path.append(Object_Position_Y)
+
+    plt.plot(Object_X_Path, Object_Y_Path, color='blue')
