@@ -36,3 +36,4 @@ while Distance_From_Black_Hole > 0.9:
 plt.plot(Object_X_Path, Object_Y_Path, color='blue') # Plotting the path of the object
 plt.plot(0, 0, marker='o', markersize=10, color='black')  # Black hole at the origin
 plt.axis('equal')
+plt.show()
