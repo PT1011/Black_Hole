@@ -14,7 +14,9 @@ Object_Velocity_Y = 0  # initial velocity in m/s
 Object_X_Path = []
 Object_Y_Path = []
 
-while Distance_From_Black_Hole != 0:
+Distance_From_Black_Hole = math.sqrt(Object_Position_Y**2 + Object_Position_X**2)
+
+while Distance_From_Black_Hole != 0.0:
     Distance_From_Black_Hole = math.sqrt(Object_Position_Y**2 + Object_Position_X**2)
 
     Gravitational_Acceleration = (Gravity * Black_Hole_Mass) / Distance_From_Black_Hole**2
@@ -22,4 +24,11 @@ while Distance_From_Black_Hole != 0:
     Gravity_Force_X = Gravitational_Acceleration * (-Object_Position_X / Distance_From_Black_Hole)
     Gravity_Force_Y = Gravitational_Acceleration * (-Object_Position_Y / Distance_From_Black_Hole)
 
+    Object_Velocity_X += Gravity_Force_X * dt
+    Object_Velocity_Y += Gravity_Force_Y * dt
 
+    Object_Position_X += Object_Velocity_X * dt
+    Object_Position_Y += Object_Velocity_Y * dt
+
+    Object_X_Path.append(Object_Position_X)
+    Object_Y_Path.append(Object_Position_Y)
