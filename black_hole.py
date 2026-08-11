@@ -1,10 +1,15 @@
 import matplotlib.pyplot as plt
 import tkinter as tk
 from mpl_toolkits.mplot3d import Axes3D
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import math
 
 root = tk.Tk(screenName=None, baseName=None, className='Tk', useTk=1)
-root.geometry("300x200")
+root.geometry("500x500")
+
+fig = plt.figure()
+canvas = FigureCanvasTkAgg(fig, master=root)
+canvas.get_tk_widget().grid(row=6, column=0, columnspan=2)
 
 def run_simulation():
 
@@ -62,12 +67,11 @@ def run_simulation():
         if Distance_From_Black_Hole < 2:
             break
 
-    # Plot the path of the object in 3D space
-    fig = plt.figure()
-    ax = fig.add_subplot(projection='3d')
+    # Plot the path of the object in 3D spacefig = plt.figure()
+    ax.clear()
     ax.plot(Object_X_Path, Object_Y_Path, Object_Z_Path, color='blue')
     ax.plot([0], [0], [0], marker='o', markersize=10, color='black')
-    plt.show()
+    canvas.draw()
 
 label = tk.Label(root, text="Black Hole Simulation Parameters")
 
