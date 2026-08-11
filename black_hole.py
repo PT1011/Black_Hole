@@ -4,9 +4,11 @@ from mpl_toolkits.mplot3d import Axes3D
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import math
 
+# Create the main window
 root = tk.Tk(screenName=None, baseName=None, className='Tk', useTk=1)
 root.geometry("643x650")
 
+# Create a 3D plot for the simulation
 fig = plt.figure()
 ax = fig.add_subplot(projection='3d')
 canvas = FigureCanvasTkAgg(fig, master=root)
@@ -74,6 +76,7 @@ def run_simulation():
     ax.plot([0], [0], [0], marker='o', markersize=10, color='black')
     canvas.draw()
 
+# Create labels and entry fields for user input
 label = tk.Label(root, text="Black Hole Simulation Parameters")
 
 tk.Label(root, text="Black Hole Mass (kg)").grid(row=1, column=0)
@@ -83,19 +86,21 @@ tk.Label(root, text="Object X Initial Velocity (m/s)").grid(row=2, column=0, pad
 tk.Label(root, text="Object Y Initial Velocity (m/s)").grid(row=3, column=0, pady=10)
 tk.Label(root, text="Object Z Initial Velocity (m/s)").grid(row=4, column=0, pady=10)
 
-
+# Create entry fields for user input
 Black_Hole_Mass_Entry = tk.Entry(root)
 Object_Velocity_X_Entry = tk.Entry(root)
 Object_Velocity_Y_Entry = tk.Entry(root)
 Object_Velocity_Z_Entry = tk.Entry(root)
 
+# Place the entry fields in the grid
 Black_Hole_Mass_Entry.grid(row=1, column=1)
 Object_Velocity_X_Entry.grid(row=2, column=1)
 Object_Velocity_Y_Entry.grid(row=3, column=1)
 Object_Velocity_Z_Entry.grid(row=4, column=1)
 
+# Create a button to run the simulation
 button = tk.Button(root, text="Run Simulation", width=25, command= run_simulation)
 button.grid(row=5, column=0, columnspan=2)
 
-
+# Start the Tkinter event loop
 root.mainloop()
