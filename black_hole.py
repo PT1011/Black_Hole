@@ -14,20 +14,20 @@ tk.Label(root, text="Object X Initial Velocity (m/s)").grid(row=2, column=0)
 tk.Label(root, text="Object Y Initial Velocity (m/s)").grid(row=3, column=0)
 tk.Label(root, text="Object Z Initial Velocity (m/s)").grid(row=4, column=0)
 
-entry1 = tk.Entry(root)
-entry2 = tk.Entry(root)
-entry3 = tk.Entry(root)
-entry4 = tk.Entry(root)
+Black_Hole_Mass_Entry = tk.Entry(root)
+Object_Velocity_X_Entry = tk.Entry(root)
+Object_Velocity_Y_Entry = tk.Entry(root)
+Object_Velocity_Z_Entry = tk.Entry(root)
 
-entry1.grid(row=0, column=1)
-entry2.grid(row=2, column=1)
-entry3.grid(row=3, column=1)
-entry4.grid(row=4, column=1)
+Black_Hole_Mass_Entry.grid(row=0, column=1)
+Object_Velocity_X_Entry.grid(row=2, column=1)
+Object_Velocity_Y_Entry.grid(row=3, column=1)
+Object_Velocity_Z_Entry.grid(row=4, column=1)
 
 root.mainloop()
 
 Gravity = 9.81  # m/s^2
-Black_Hole_Mass = 1000  # kg
+Black_Hole_Mass = float(Black_Hole_Mass_Entry.get())  # kg
 dt = 0.01  # time step in seconds (derivative of time)
 
 # initial position in meters
@@ -36,9 +36,9 @@ Object_Position_Y = 100
 Object_Position_Z = 0  
 
 # initial velocity in m/s
-Object_Velocity_X = 3
-Object_Velocity_Y = 0  
-Object_Velocity_Z = 2  
+Object_Velocity_X = float(Object_Velocity_X_Entry.get())
+Object_Velocity_Y = float(Object_Velocity_Y_Entry.get())
+Object_Velocity_Z = float(Object_Velocity_Z_Entry.get())
 
 # Lists to store the path of the object
 Object_X_Path = []
