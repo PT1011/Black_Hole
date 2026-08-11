@@ -24,35 +24,37 @@ Object_Velocity_X_Entry.grid(row=2, column=1)
 Object_Velocity_Y_Entry.grid(row=3, column=1)
 Object_Velocity_Z_Entry.grid(row=4, column=1)
 
-button = tk.Button(root, text="Run Simulation", width=25, command= run_simulation())
-button.pack()
+button = tk.Button(root, text="Run Simulation", width=25, command= run_simulation)
+button.grid(row=5, column=0, columnspan=2)
 
 
 root.mainloop()
 
-Gravity = 9.81  # m/s^2
-Black_Hole_Mass = float(Black_Hole_Mass_Entry.get())  # kg
-dt = 0.01  # time step in seconds (derivative of time)
 
-# initial position in meters
-Object_Position_X = 0  
-Object_Position_Y = 100  
-Object_Position_Z = 0  
-
-# initial velocity in m/s
-Object_Velocity_X = float(Object_Velocity_X_Entry.get())
-Object_Velocity_Y = float(Object_Velocity_Y_Entry.get())
-Object_Velocity_Z = float(Object_Velocity_Z_Entry.get())
-
-# Lists to store the path of the object
-Object_X_Path = []
-Object_Y_Path = []
-Object_Z_Path = []
-
-# Calculate the initial distance from the black hole
-Distance_From_Black_Hole = math.sqrt(Object_Position_Y**2 + Object_Position_X**2 + Object_Position_Z**2)
 
 def run_simulation():
+
+    Gravity = 9.81  # m/s^2
+    Black_Hole_Mass = float(Black_Hole_Mass_Entry.get())  # kg
+    dt = 0.01  # time step in seconds (derivative of time)
+
+    # initial position in meters
+    Object_Position_X = 0  
+    Object_Position_Y = 100  
+    Object_Position_Z = 0  
+
+    # initial velocity in m/s
+    Object_Velocity_X = float(Object_Velocity_X_Entry.get())
+    Object_Velocity_Y = float(Object_Velocity_Y_Entry.get())
+    Object_Velocity_Z = float(Object_Velocity_Z_Entry.get())
+
+    # Lists to store the path of the object
+    Object_X_Path = []
+    Object_Y_Path = []
+    Object_Z_Path = []
+
+    # Calculate the initial distance from the black hole
+    Distance_From_Black_Hole = math.sqrt(Object_Position_Y**2 + Object_Position_X**2 + Object_Position_Z**2)
 
     # Simulate the motion of the object under the influence of the black hole's gravity
     for step in range(50000):  # simulate for 10000 time steps
