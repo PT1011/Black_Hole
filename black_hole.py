@@ -1,6 +1,30 @@
 import matplotlib.pyplot as plt
+import tkinter as tk
 from mpl_toolkits.mplot3d import Axes3D
 import math
+
+root = tk.Tk(screenName=None, baseName=None, className='Tk', useTk=1)
+
+label = tk.Label(root, text="Black Hole Simulation Parameters")
+label.pack()
+
+tk.Label(root, text="Black Hole Mass (kg)").grid(row=0, column=0)
+
+tk.Label(root, text="Object X Initial Velocity (m/s)").grid(row=2, column=0)
+tk.Label(root, text="Object Y Initial Velocity (m/s)").grid(row=3, column=0)
+tk.Label(root, text="Object Z Initial Velocity (m/s)").grid(row=4, column=0)
+
+entry1 = tk.Entry(root)
+entry2 = tk.Entry(root)
+entry3 = tk.Entry(root)
+entry4 = tk.Entry(root)
+
+entry1.grid(row=0, column=1)
+entry2.grid(row=2, column=1)
+entry3.grid(row=3, column=1)
+entry4.grid(row=4, column=1)
+
+root.mainloop()
 
 Gravity = 9.81  # m/s^2
 Black_Hole_Mass = 1000  # kg
@@ -12,7 +36,7 @@ Object_Position_Y = 100
 Object_Position_Z = 0  
 
 # initial velocity in m/s
-Object_Velocity_X = 3
+Object_Velocity_X = 3.5
 Object_Velocity_Y = 0  
 Object_Velocity_Z = 2  
 
@@ -47,6 +71,7 @@ for step in range(50000):  # simulate for 10000 time steps
     Object_Position_X += Object_Velocity_X * dt
     Object_Position_Y += Object_Velocity_Y * dt
     Object_Position_Z += Object_Velocity_Z * dt
+
     Object_X_Path.append(Object_Position_X)
     Object_Y_Path.append(Object_Position_Y)
     Object_Z_Path.append(Object_Position_Z)
