@@ -5,7 +5,7 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import math
 
 root = tk.Tk(screenName=None, baseName=None, className='Tk', useTk=1)
-root.geometry("800x800")
+root.geometry("643x650")
 
 fig = plt.figure()
 ax = fig.add_subplot(projection='3d')
