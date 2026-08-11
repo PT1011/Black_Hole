@@ -4,6 +4,7 @@ from mpl_toolkits.mplot3d import Axes3D
 import math
 
 root = tk.Tk(screenName=None, baseName=None, className='Tk', useTk=1)
+root.geometry("300x200")
 
 def run_simulation():
 
@@ -73,9 +74,9 @@ label = tk.Label(root, text="Black Hole Simulation Parameters")
 tk.Label(root, text="Black Hole Mass (kg)").grid(row=1, column=0)
 label.grid(row=0, column=0, columnspan=2)
 
-tk.Label(root, text="Object X Initial Velocity (m/s)").grid(row=2, column=0)
-tk.Label(root, text="Object Y Initial Velocity (m/s)").grid(row=3, column=0)
-tk.Label(root, text="Object Z Initial Velocity (m/s)").grid(row=4, column=0)
+tk.Label(root, text="Object X Initial Velocity (m/s)").grid(row=2, column=0, pady=10)
+tk.Label(root, text="Object Y Initial Velocity (m/s)").grid(row=3, column=0, pady=10)
+tk.Label(root, text="Object Z Initial Velocity (m/s)").grid(row=4, column=0, pady=10)
 
 
 Black_Hole_Mass_Entry = tk.Entry(root)
