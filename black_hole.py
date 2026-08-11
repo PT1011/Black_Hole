@@ -5,33 +5,6 @@ import math
 
 root = tk.Tk(screenName=None, baseName=None, className='Tk', useTk=1)
 
-label = tk.Label(root, text="Black Hole Simulation Parameters")
-
-tk.Label(root, text="Black Hole Mass (kg)").grid(row=1, column=0)
-
-tk.Label(root, text="Object X Initial Velocity (m/s)").grid(row=2, column=0)
-tk.Label(root, text="Object Y Initial Velocity (m/s)").grid(row=3, column=0)
-tk.Label(root, text="Object Z Initial Velocity (m/s)").grid(row=4, column=0)
-
-
-Black_Hole_Mass_Entry = tk.Entry(root)
-Object_Velocity_X_Entry = tk.Entry(root)
-Object_Velocity_Y_Entry = tk.Entry(root)
-Object_Velocity_Z_Entry = tk.Entry(root)
-
-Black_Hole_Mass_Entry.grid(row=1, column=1)
-Object_Velocity_X_Entry.grid(row=2, column=1)
-Object_Velocity_Y_Entry.grid(row=3, column=1)
-Object_Velocity_Z_Entry.grid(row=4, column=1)
-
-button = tk.Button(root, text="Run Simulation", width=25, command= run_simulation)
-button.grid(row=5, column=0, columnspan=2)
-
-
-root.mainloop()
-
-
-
 def run_simulation():
 
     Gravity = 9.81  # m/s^2
@@ -95,4 +68,28 @@ def run_simulation():
     ax.plot([0], [0], [0], marker='o', markersize=10, color='black')
     plt.show()
 
-    root.mainloop()
+label = tk.Label(root, text="Black Hole Simulation Parameters")
+
+tk.Label(root, text="Black Hole Mass (kg)").grid(row=1, column=0)
+label.grid(row=0, column=0, columnspan=2)
+
+tk.Label(root, text="Object X Initial Velocity (m/s)").grid(row=2, column=0)
+tk.Label(root, text="Object Y Initial Velocity (m/s)").grid(row=3, column=0)
+tk.Label(root, text="Object Z Initial Velocity (m/s)").grid(row=4, column=0)
+
+
+Black_Hole_Mass_Entry = tk.Entry(root)
+Object_Velocity_X_Entry = tk.Entry(root)
+Object_Velocity_Y_Entry = tk.Entry(root)
+Object_Velocity_Z_Entry = tk.Entry(root)
+
+Black_Hole_Mass_Entry.grid(row=1, column=1)
+Object_Velocity_X_Entry.grid(row=2, column=1)
+Object_Velocity_Y_Entry.grid(row=3, column=1)
+Object_Velocity_Z_Entry.grid(row=4, column=1)
+
+button = tk.Button(root, text="Run Simulation", width=25, command= run_simulation)
+button.grid(row=5, column=0, columnspan=2)
+
+
+root.mainloop()
