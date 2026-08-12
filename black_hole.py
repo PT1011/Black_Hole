@@ -24,7 +24,7 @@ Object_X_Path = []
 Object_Y_Path = []
 Object_Z_Path = []
 
-
+# Function to run the simulation
 def run_simulation(value=None):
 
     # Check if the simulation has already started
@@ -89,21 +89,34 @@ def run_simulation(value=None):
         if Distance_From_Black_Hole < 2:
             break
 
-    # Plot the path of the object in 3D space
     ax.clear()
+
+     # Set the labels for the axes
+    ax.set_xlabel('X')
+    ax.set_ylabel('Y')
+    ax.set_zlabel('Z')
+
+    # Plot the path of the object in 3D space        
     ax.plot(Object_X_Path, Object_Y_Path, Object_Z_Path, color='blue')
     ax.plot([0], [0], [0], marker='o', markersize=10, color='black')
     canvas.draw()
 
+# Update the simulation when the slider values change
 def update_from_slider(value=None):
     if simulation_started:
         run_simulation()
 
+# Watch the animation of the object's path
 def watch_animation():
     global Object_X_Path, Object_Y_Path, Object_Z_Path
 
     for step in range(0, len(Object_X_Path), 100): # animate every 100 steps
         ax.clear()
+
+        # Set the labels for the axes
+        ax.set_xlabel('X')
+        ax.set_ylabel('Y')
+        ax.set_zlabel('Z')
 
         # Plot the black hole and the object's path up to the current step
         ax.plot([0], [0], [0], marker='o', markersize=10, color='black')
