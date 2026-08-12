@@ -26,9 +26,9 @@ def run_simulation():
     Object_Position_Z = 0  
 
     # initial velocity in m/s
-    Object_Velocity_X = float(Object_Velocity_X_Entry.get())
-    Object_Velocity_Y = float(Object_Velocity_Y_Entry.get())
-    Object_Velocity_Z = float(Object_Velocity_Z_Entry.get())
+    Object_Velocity_X = float(Object_Velocity_X_Slider.get())
+    Object_Velocity_Y = float(Object_Velocity_Y_Slider.get())
+    Object_Velocity_Z = float(Object_Velocity_Z_Slider.get())
 
     # Lists to store the path of the object
     Object_X_Path = []
@@ -87,16 +87,16 @@ tk.Label(root, text="Object Y Initial Velocity (m/s)").grid(row=3, column=0, pad
 tk.Label(root, text="Object Z Initial Velocity (m/s)").grid(row=4, column=0, pady=10)
 
 # Create entry fields for user input
-Black_Hole_Mass_Entry = tk.Entry(root)
-Object_Velocity_X_Entry = tk.Entry(root)
-Object_Velocity_Y_Entry = tk.Entry(root)
-Object_Velocity_Z_Entry = tk.Entry(root)
+Black_Hole_Mass_Entry = tk.Scale(root, from_=0, to=1000, resolution=0.1, orient=tk.HORIZONTAL)
+Object_Velocity_X_Slider = tk.Scale(root, from_=0, to=10, resolution=0.1, orient=tk.HORIZONTAL)
+Object_Velocity_Y_Slider = tk.Scale(root, from_=0, to=10, resolution=0.1, orient=tk.HORIZONTAL)
+Object_Velocity_Z_Slider = tk.Scale(root, from_=0, to=10, resolution=0.1, orient=tk.HORIZONTAL)
 
 # Place the entry fields in the grid
 Black_Hole_Mass_Entry.grid(row=1, column=1)
-Object_Velocity_X_Entry.grid(row=2, column=1)
-Object_Velocity_Y_Entry.grid(row=3, column=1)
-Object_Velocity_Z_Entry.grid(row=4, column=1)
+Object_Velocity_X_Slider.grid(row=2, column=1)
+Object_Velocity_Y_Slider.grid(row=3, column=1)
+Object_Velocity_Z_Slider.grid(row=4, column=1)
 
 # Create a button to run the simulation
 button = tk.Button(root, text="Run Simulation", width=25, command= run_simulation)
