@@ -1,3 +1,5 @@
+import time
+
 import matplotlib.pyplot as plt
 import tkinter as tk
 from mpl_toolkits.mplot3d import Axes3D
@@ -100,13 +102,17 @@ def update_from_slider(value=None):
 def watch_animation():
     global Object_X_Path, Object_Y_Path, Object_Z_Path
 
-    for step in range(0, len(Object_X_Path), 100):
+    for step in range(0, len(Object_X_Path), 100): # animate every 100 steps
         ax.clear()
 
-        # redraw every frame
+        # Plot the black hole and the object's path up to the current step
         ax.plot([0], [0], [0], marker='o', markersize=10, color='black')
         ax.plot(Object_X_Path[:step], Object_Y_Path[:step], Object_Z_Path[:step], color='blue')
-        plt.pause(0.01) # pause for a short time to create the animation effect
+
+        # Animate the object's current position
+        canvas.draw()
+        root.update()
+        time.sleep(0.01)
 
 # Create labels and entry fields for user input
 label = tk.Label(root, text="Black Hole Simulation Parameters")
