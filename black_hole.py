@@ -8,13 +8,23 @@ import math
 root = tk.Tk(screenName=None, baseName=None, className='Tk', useTk=1)
 root.geometry("643x650")
 
+# Create a flag to indicate whether the simulation has started
+simulation_started = False
+
 # Create a 3D plot for the simulation
 fig = plt.figure()
 ax = fig.add_subplot(projection='3d')
 canvas = FigureCanvasTkAgg(fig, master=root)
 canvas.get_tk_widget().grid(row=6, column=0, columnspan=2)
 
-def run_simulation():
+def run_simulation(value=None):
+
+    # Check if the simulation has already started
+    global simulation_started
+    simulation_started = True
+
+    # Set the simulation_started flag to True to indicate that the simulation is running
+    simulation_started = True
 
     Gravity = 9.81  # m/s^2
     Black_Hole_Mass = float(Black_Hole_Mass_Entry.get())  # kg
@@ -76,6 +86,10 @@ def run_simulation():
     ax.plot([0], [0], [0], marker='o', markersize=10, color='black')
     canvas.draw()
 
+def update_from_slider(value=None):
+    if simulation_started:
+        run_simulation()
+
 # Create labels and entry fields for user input
 label = tk.Label(root, text="Black Hole Simulation Parameters")
 
@@ -87,10 +101,10 @@ tk.Label(root, text="Object Y Initial Velocity (m/s)").grid(row=3, column=0, pad
 tk.Label(root, text="Object Z Initial Velocity (m/s)").grid(row=4, column=0, pady=10)
 
 # Create entry fields for user input
-Black_Hole_Mass_Entry = tk.Scale(root, from_=0, to=1000, resolution=0.1, orient=tk.HORIZONTAL)
-Object_Velocity_X_Slider = tk.Scale(root, from_=0, to=10, resolution=0.1, orient=tk.HORIZONTAL)
-Object_Velocity_Y_Slider = tk.Scale(root, from_=0, to=10, resolution=0.1, orient=tk.HORIZONTAL)
-Object_Velocity_Z_Slider = tk.Scale(root, from_=0, to=10, resolution=0.1, orient=tk.HORIZONTAL)
+Black_Hole_Mass_Entry = tk.Scale(root, from_=0, to=1000, resolution=0.1, orient=tk.HORIZONTAL, command=update_from_slider)
+Object_Velocity_X_Slider = tk.Scale(root, from_=0, to=10, resolution=0.1, orient=tk.HORIZONTAL, command=update_from_slider)
+Object_Velocity_Y_Slider = tk.Scale(root, from_=0, to=10, resolution=0.1, orient=tk.HORIZONTAL, command=update_from_slider)
+Object_Velocity_Z_Slider = tk.Scale(root, from_=0, to=10, resolution=0.1, orient=tk.HORIZONTAL, command=update_from_slider)
 
 # Place the entry fields in the grid
 Black_Hole_Mass_Entry.grid(row=1, column=1)
