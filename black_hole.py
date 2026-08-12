@@ -10,6 +10,9 @@ import math
 root = tk.Tk(screenName=None, baseName=None, className='Tk', useTk=1)
 root.geometry("643x743")
 
+# Set the background color of the window 
+root.configure(bg="#1e1e2f")
+
 # Create a flag to indicate whether the simulation has started
 simulation_started = False
 
@@ -128,20 +131,20 @@ def watch_animation():
         time.sleep(0.01)
 
 # Create labels and entry fields for user input
-label = tk.Label(root, text="Black Hole Simulation Parameters")
-
-tk.Label(root, text="Black Hole Mass (kg)").grid(row=1, column=0)
+label = tk.Label(root, text="Black Hole Simulation", font=("Arial", 16, "bold"))
+label.configure(bg="#1e1e2f", fg="white")
+tk.Label(root, text="Black Hole Mass (kg)", fg="white", bg="#1e1e2f", font=("Arial", 10, "bold")).grid(row=1, column=0)
 label.grid(row=0, column=0, columnspan=2)
 
-tk.Label(root, text="Object X Initial Velocity (m/s)").grid(row=2, column=0, pady=10)
-tk.Label(root, text="Object Y Initial Velocity (m/s)").grid(row=3, column=0, pady=10)
-tk.Label(root, text="Object Z Initial Velocity (m/s)").grid(row=4, column=0, pady=10)
+tk.Label(root, text="Object X Initial Velocity (m/s)", fg="white", bg="#1e1e2f", font=("Arial", 10, "bold")).grid(row=2, column=0, pady=10)
+tk.Label(root, text="Object Y Initial Velocity (m/s)", fg="white", bg="#1e1e2f", font=("Arial", 10, "bold")).grid(row=3, column=0, pady=10)
+tk.Label(root, text="Object Z Initial Velocity (m/s)", fg="white", bg="#1e1e2f", font=("Arial", 10, "bold")).grid(row=4, column=0, pady=10)
 
 # Create entry fields for user input
-Black_Hole_Mass_Entry = tk.Scale(root, from_=0, to=1000, resolution=0.1, orient=tk.HORIZONTAL, command=update_from_slider)
-Object_Velocity_X_Slider = tk.Scale(root, from_=0, to=10, resolution=0.1, orient=tk.HORIZONTAL, command=update_from_slider)
-Object_Velocity_Y_Slider = tk.Scale(root, from_=0, to=10, resolution=0.1, orient=tk.HORIZONTAL, command=update_from_slider)
-Object_Velocity_Z_Slider = tk.Scale(root, from_=0, to=10, resolution=0.1, orient=tk.HORIZONTAL, command=update_from_slider)
+Black_Hole_Mass_Entry = tk.Scale(root, from_=0, to=1000, resolution=0.1, orient=tk.HORIZONTAL, command=update_from_slider, bg="#1e1e2f", fg="white", troughcolor="#4a4e69", length=300)
+Object_Velocity_X_Slider = tk.Scale(root, from_=0, to=10, resolution=0.1, orient=tk.HORIZONTAL, command=update_from_slider, bg="#1e1e2f", fg="white", troughcolor="#4a4e69", length=300)
+Object_Velocity_Y_Slider = tk.Scale(root, from_=0, to=10, resolution=0.1, orient=tk.HORIZONTAL, command=update_from_slider, bg="#1e1e2f", fg="white", troughcolor="#4a4e69", length=300)
+Object_Velocity_Z_Slider = tk.Scale(root, from_=0, to=10, resolution=0.1, orient=tk.HORIZONTAL, command=update_from_slider, bg="#1e1e2f", fg="white", troughcolor="#4a4e69", length=300)
 
 # Place the entry fields in the grid
 Black_Hole_Mass_Entry.grid(row=1, column=1)
@@ -152,10 +155,12 @@ Object_Velocity_Z_Slider.grid(row=4, column=1)
 # Create a button to run the simulation
 button = tk.Button(root, text="Run Simulation", width=25, command= run_simulation)
 button.grid(row=5, column=0, columnspan=2)
+button.configure(bg="#4a4e69", fg="white", font=("Arial", 11, "bold"))
 
 # Create a button to run the animation
 button = tk.Button(root, text="Run Animation", width=25, command= watch_animation)
 button.grid(row=8, column=0, columnspan=2)
+button.configure(bg="#4a4e69", fg="white", font=("Arial", 11, "bold"))
 
 # Start the Tkinter event loop
 root.mainloop()
