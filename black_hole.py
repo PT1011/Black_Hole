@@ -6,7 +6,7 @@ import math
 
 # Create the main window
 root = tk.Tk(screenName=None, baseName=None, className='Tk', useTk=1)
-root.geometry("643x650")
+root.geometry("643x743")
 
 # Create a flag to indicate whether the simulation has started
 simulation_started = False
@@ -108,8 +108,6 @@ def watch_animation():
         ax.plot(Object_X_Path[:step], Object_Y_Path[:step], Object_Z_Path[:step], color='blue')
         plt.pause(0.01) # pause for a short time to create the animation effect
 
-        
-
 # Create labels and entry fields for user input
 label = tk.Label(root, text="Black Hole Simulation Parameters")
 
@@ -135,6 +133,10 @@ Object_Velocity_Z_Slider.grid(row=4, column=1)
 # Create a button to run the simulation
 button = tk.Button(root, text="Run Simulation", width=25, command= run_simulation)
 button.grid(row=5, column=0, columnspan=2)
+
+# Create a button to run the animation
+button = tk.Button(root, text="Run Animation", width=25, command= watch_animation)
+button.grid(row=8, column=0, columnspan=2)
 
 # Start the Tkinter event loop
 root.mainloop()
