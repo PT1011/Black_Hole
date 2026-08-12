@@ -17,6 +17,12 @@ ax = fig.add_subplot(projection='3d')
 canvas = FigureCanvasTkAgg(fig, master=root)
 canvas.get_tk_widget().grid(row=6, column=0, columnspan=2)
 
+# Lists to store the path of the object
+Object_X_Path = []
+Object_Y_Path = []
+Object_Z_Path = []
+
+
 def run_simulation(value=None):
 
     # Check if the simulation has already started
@@ -41,6 +47,7 @@ def run_simulation(value=None):
     Object_Velocity_Z = float(Object_Velocity_Z_Slider.get())
 
     # Lists to store the path of the object
+    global Object_X_Path, Object_Y_Path, Object_Z_Path
     Object_X_Path = []
     Object_Y_Path = []
     Object_Z_Path = []
@@ -89,6 +96,19 @@ def run_simulation(value=None):
 def update_from_slider(value=None):
     if simulation_started:
         run_simulation()
+
+def watch_animation():
+    global Object_X_Path, Object_Y_Path, Object_Z_Path
+
+    for step in range(0, len(Object_X_Path), 100):
+        ax.clear()
+
+        # redraw every frame
+        ax.plot([0], [0], [0], marker='o', markersize=10, color='black')
+        ax.plot(Object_X_Path[:step], Object_Y_Path[:step], Object_Z_Path[:step], color='blue')
+        plt.pause(0.01) # pause for a short time to create the animation effect
+
+        
 
 # Create labels and entry fields for user input
 label = tk.Label(root, text="Black Hole Simulation Parameters")
