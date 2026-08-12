@@ -13,9 +13,11 @@ If the object gets close enough to the black hole (inside a set "event horizon" 
 - GUI built with Tkinter, using sliders for input
 - Adjustable black hole mass and initial X/Y/Z velocity
 - 3D orbit path rendered with Matplotlib, embedded directly in the app window
+- Labeled X, Y, and Z axes
 - Simple Newtonian gravity physics (`a = G*M / r²`)
 - Event horizon detection
 - Rotatable 3D view for inspecting the orbit shape from any angle
+- "Run Animation" button to watch the object trace its path over time, instead of seeing it drawn instantly
 
 ## How it works
 
@@ -49,9 +51,12 @@ python black_hole.py
 A window will open with:
 - Sliders for black hole mass and initial X/Y/Z velocity
 - A "Run Simulation" button
-- An embedded 3D plot area
+- A "Run Animation" button
+- An embedded, labeled 3D plot area
 
-Set the sliders, click **Run Simulation** once to draw the initial orbit. After that first click, moving any slider automatically reruns the simulation and updates the plot in place — no need to click the button again. You can also click and drag the plot itself to rotate the 3D view at any time.
+Set the sliders, click **Run Simulation** once to draw the initial orbit instantly. After that first click, moving any slider automatically reruns the simulation and updates the plot in place — no need to click the button again. You can also click and drag the plot itself to rotate the 3D view at any time.
+
+Click **Run Animation** at any point after the first run to watch the object trace its most recent path step-by-step instead of seeing it appear all at once.
 
 ## Suggested starting values
 
@@ -86,4 +91,5 @@ In general, it's the **total sideways speed** (X and Z combined) relative to the
 
 - Add a reset/clear button
 - Add labels showing the live slider values and/or a "fell in!" vs "still orbiting" status message
+- Add a speed control for the animation
 - Add multiple simultaneous orbiting objects
